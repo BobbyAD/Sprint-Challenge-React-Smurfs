@@ -11,6 +11,8 @@
     margin: 20px;
     .delete-button {
         justify-self: flex-start;
+        margin: 2px;
+        z-index: 1000;
         button {
             background-color: transparent;
             border: none;

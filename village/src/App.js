@@ -5,12 +5,14 @@ import {Route, NavLink} from 'react-router-dom';
 import './App.scss';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			smurfs: [],
+			activeSmurf: {}
 		};
 	}
 	// add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -35,7 +37,7 @@ class App extends Component {
 			.then(res => {
 				console.log(res)
 				this.setState({
-					smurfs: res.data
+					smurfs: res.data,
 				})
 			})
 			.catch(err => {
@@ -49,7 +51,7 @@ class App extends Component {
 			.then(res => {
 				console.log(res)
 				this.setState({
-					smurfs: res.data
+					smurfs: res.data,
 				})
 			})
 			.catch(err => {
@@ -57,19 +59,34 @@ class App extends Component {
 			})
 	}
 
+	setSmurf = smurf => {
+		this.setState({
+			activeSmurf: smurf
+		})
+	}
+
 	render() {
 		return (
 			<div className="App">
 				<div className="nav">
 					<NavLink exact to="/" activeClassName="active-nav">Smurfs</NavLink>
-					<NavLink to="/smurf-form" activeClassName="active-nav">Add Smurf</NavLink>
+					<NavLink exact to="/smurf-form" activeClassName="active-nav">Add Smurf</NavLink>
 				</div>
 				<Route exact path="/" render={() => <Smurfs
 					smurfs={this.state.smurfs}
 					deleteSmurf={this.deleteSmurf}
+					setSmurf={this.setSmurf}
 				/>} />
 				<Route path="/smurf-form" render={() => <SmurfForm
 					addSmurf={this.addSmurf}
+				/>} />
+				<Route exact path="/smurf/:id" render={props => <Smurf
+					{...props}
+					name={this.state.activeSmurf.name}
+					id={this.state.activeSmurf.id}
+					age={this.state.activeSmurf.age}
+					height={this.state.activeSmurf.height}
+					deleteSmurf={this.deleteSmurf}
 				/>} />
 			</div>
 		);
