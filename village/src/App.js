@@ -82,6 +82,7 @@ class App extends Component {
 				/>} />
 				<Route exact path="/smurf/:id" render={props => <Smurf
 					{...props}
+					setSmurf={this.setSmurf}
 					name={this.state.activeSmurf.name}
 					id={this.state.activeSmurf.id}
 					age={this.state.activeSmurf.age}
