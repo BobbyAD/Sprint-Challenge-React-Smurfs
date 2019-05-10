@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.Smurfs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        margin: 20px;
+        padding-bottom: 5px;
+        font-weight: 500;
+        font-size: 30px;
+        color: $lightest;
+        border-bottom: 1px solid $midLight;
+    }
+}

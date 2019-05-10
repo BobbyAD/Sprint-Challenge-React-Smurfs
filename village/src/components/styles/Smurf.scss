@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+.Smurf {
+    display: flex;
+    justify-content: space-between;
+    background-color: $midLight;
+    color: $darkest;
+    width: 40vw;
+    border: 1px solid $midLight;
+    border-radius: 5px;
+    margin: 20px;
+    .delete-button {
+        justify-self: flex-start;
+        margin: 2px;
+        z-index: 1000;
+        button {
+            background-color: transparent;
+            border: none;
+            color: $darkest;
+        }
+    }
+    .smurf-stats {
+        text-align: right;
+        h3 {
+            font-weight: 500;
+            color: $lightest;
+            margin: 10px;
+        }
+        strong {
+            margin: 5px;
+            margin-right: 10px;
+        }
+        p {
+            margin: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
