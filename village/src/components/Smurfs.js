@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/Smurfs.scss'
 
 import Smurf from './Smurf';
 

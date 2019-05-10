@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/Smurf.scss';
 
 const Smurf = props => {
   function deleteSmurf() {
@@ -6,10 +7,14 @@ const Smurf = props => {
   }
   return (
     <div className="Smurf">
-      <button onClick={deleteSmurf}>X</button>
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      <div className="delete-button">
+        <button onClick={deleteSmurf}>X</button>
+      </div>
+      <div className="smurf-stats">
+        <h3>{props.name}</h3>
+        <strong>{props.height} tall</strong>
+        <p>{props.age} smurf years old</p>
+      </div>
     </div>
   );
 };

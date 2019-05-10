@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/SmurfForm.scss';
 
 class SmurfForm extends Component {
   constructor(props) {
